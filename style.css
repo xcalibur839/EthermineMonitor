@@ -1,0 +1,6 @@
+#current, #history{width: 100%; background-color: A0A0A0;}
+.current, .history{float: left; width: 30%; min-width: 200pt; font-size: 150%;}
+a {float: left;}
+.Michael{background-color: E0E0FF;}
+.Kevin{background-color: FFE0E0;}
+.Josh{background-color: E0FFE0;}

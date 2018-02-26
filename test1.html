@@ -1,0 +1,33 @@
+<UL id="example_tree">
+    <LI><span>Example Item 1</span></LI>
+    <LI><span>Example Item 2</span></LI>
+    <LI><span>Example Sub List 3</span>
+        <UL>
+            <LI><span>Example Item 3.1</span></LI>
+            <LI><span>Example Item 3.2</span></LI>
+            <LI><span>Example Item 3.3</span></LI>
+        </UL>
+    </LI>
+    <LI><span>Example Sub List 4</span>
+        <UL>
+            <LI><span>Example Item 4.1</span></LI>
+            <LI><span>Example Item 4.2</span></LI>
+            <LI><span>Example Item 4.3</span>
+                <UL>
+                    <LI><span>Example Item 4.3.1</span></LI>
+                    <LI><span>Example Item 4.3.2</span></LI>
+                    <LI><span>Example Item 4.3.3</span></LI>
+                </UL>
+            </LI>
+        </UL>
+    </LI>
+</UL>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+$('#example_tree').find('SPAN').click(function(e){
+    $(this).parent().children('UL').toggle();
+});
+});
+</script>
