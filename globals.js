@@ -7,3 +7,11 @@ var perDayOffset = perHourOffset * 24;
 var perWeekOffset = perDayOffset * 7;
 var perYearOffset = perWeekOffset * 52;
 var perMonthOffset = perYearOffset / 12;
+
+function JSWallet(name, wallet) {
+	this.name = name;
+	this.wallet = wallet;
+	this.entries = [];
+}
+
+var WalletArray = [];

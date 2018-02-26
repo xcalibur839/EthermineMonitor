@@ -65,7 +65,7 @@ $.each(wallets, function(wk, wv) {
 
 	
 		$( "<ul/>", {
-			"class": "current",
+			"class": "current " + wk,
 			html: items.join( "" )
 		}).appendTo( "#current" );
 	});
