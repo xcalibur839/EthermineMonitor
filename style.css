@@ -7,6 +7,11 @@
     padding-bottom: 20pt;
 }
 a {float: left;}
+#values {
+    float: right;
+    font-size: 150%;
+    margin: 1em 2.5em 1em 1em;
+}
 .Michael{background-color: E0E0FF;}
 .Kevin{background-color: FFE0E0;}
 .Josh{background-color: E0FFE0;}
