@@ -7,7 +7,7 @@ html {
     margin-bottom: 0;
 }
 .Section, .history {
-    width: 30%;
+    width: 32%;
     float: left; 
     min-width: 220pt; 
     font-size: 130%;
@@ -22,17 +22,19 @@ a {
      width: 100%;
 }
 #values {
-    float: right;
+    float: left;
     /* width: 50%; */
     /* font-size: 130%; */
+    width: 100%;
     margin-right: 2.5em;
     padding-right: 1em;
     background-color: lightgrey;
 }
-/* #values ul {
-    display: block;
-    float: right;
-} */
+.values {
+    /* display: block; */
+    float: left;
+    margin: 1em;
+}
 .Michael {
     background-color: dodgerblue;
 }
@@ -45,5 +47,6 @@ a {
 .chart {
     width: 100%;
     min-height: 30%;
+    margin-right: 0.2em;
     float: left;
 }

@@ -1,7 +1,12 @@
 google.charts.load('current', {packages: ['corechart', 'line']});
 google.charts.setOnLoadCallback(drawChart);
+$(document).ajaxStop(function() {
+    console.log("Ajax done with length: " + WalletArray.length);
+    drawChart();
+});
 
 function drawChart() {
+    console.log("drawChart length: " + WalletArray.length);
     for (var i = 0; i < WalletArray.length; i++) {
         var data = new google.visualization.DataTable();
         data.addColumn('datetime', 'Time');
@@ -25,12 +30,12 @@ function drawChart() {
             explorer: {}
         };
 
-        for (var j = 0; j < WalletArray[i].entries.length; j ++) {
+        for (var j = 0; j < WalletArray[i].history.length; j ++) {
             data.addRow([
-                new Date(WalletArray[i].entries[j].time * timeOffset), 
-                WalletArray[i].entries[j].currentHashrate / mHashOffset,
-                WalletArray[i].entries[j].reportedHashrate / mHashOffset,
-                WalletArray[i].entries[j].averageHashrate / mHashOffset
+                new Date(WalletArray[i].history[j].time * timeOffset), 
+                WalletArray[i].history[j].currentHashrate / mHashOffset,
+                WalletArray[i].history[j].reportedHashrate / mHashOffset,
+                WalletArray[i].history[j].averageHashrate / mHashOffset
             ]);
         }
 

@@ -11,7 +11,8 @@ var perMonthOffset = perYearOffset / 12;
 function JSWallet(name, wallet) {
 	this.name = name;
 	this.wallet = wallet;
-	this.entries = [];
+	this.currentStats = [];
+	this.history = [];
 }
 
 var WalletArray = [];

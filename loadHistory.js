@@ -4,7 +4,7 @@ $.each(wallets, function(wk, wv) {
 		var wallet = new JSWallet(wk, wv);
 		
 		$.each(rootData, function(key, val) {
-			wallet.entries.push(val);
+			wallet.history.push(val);
 		});
 		
 		WalletArray.push(wallet);
