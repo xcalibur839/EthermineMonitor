@@ -4,7 +4,7 @@ $.each(wallets, function(wk, wv) {
 		var items = [];
 		
 		items.push("<p><h3 class=\"" + wk + "\">" + wk + "'s Miner</h3></p>")
-		items.push("<p>Wallet: <a target=\"_blank\" href=\"https://www.etherchain.org/account/" 
+		items.push("<p>Wallet: <a class=\"link\" target=\"_blank\" href=\"https://www.etherchain.org/account/" 
 		+ wv + "\">" + wv + "</a></p>");
 		
 		$.each(rootData, function(key, val) {
