@@ -23,12 +23,11 @@ a {
 }
 #values {
     float: left;
-    /* width: 50%; */
-    /* font-size: 130%; */
     width: 100%;
-    margin-right: 2.5em;
-    padding-right: 1em;
     background-color: lightgrey;
+}
+#values ul {
+    font-size: 120%;
 }
 .values {
     /* display: block; */
@@ -48,5 +47,6 @@ a {
     width: 100%;
     min-height: 30%;
     margin-right: 0.2em;
+    margin-bottom: 0.5em;
     float: left;
 }
