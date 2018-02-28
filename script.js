@@ -63,10 +63,20 @@ $.each(wallets, function(wk, wv) {
 			}
 		});
 
-	
+
+		$( "<div/>", {
+			"id": wk + "Section",
+			"class": "Section"
+		}).appendTo("#current");
+
 		$( "<ul/>", {
 			"class": "current " + wk,
 			html: items.join( "" )
-		}).appendTo( "#current" );
+		}).appendTo( "#" + wk + "Section" );
+
+		$( "<div/>", {
+			"class": "chart",
+			"id": wk
+		}).appendTo( "#" + wk + "Section" );
 	});
 });

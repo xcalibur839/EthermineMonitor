@@ -1,17 +1,49 @@
-#current, #history{width: 100%; background-color: A0A0A0;}
-.current, .history {
-    float: left; 
-    width: 30%; 
-    min-width: 240pt; 
-    font-size: 150%;
-    padding-bottom: 20pt;
+html {
+    background-color: darkslategrey
 }
-a {float: left;}
+#current, #history, h1 {
+    width: 100%; 
+    background-color: lightgrey;
+    margin-bottom: 0;
+}
+.Section, .history {
+    width: 30%;
+    float: left; 
+    min-width: 220pt; 
+    font-size: 130%;
+    margin: 0.2em;
+}
+.current {
+    padding-bottom: 2em;
+}
+a {
+    float: left;
+     display: block;
+     width: 100%;
+}
 #values {
     float: right;
-    font-size: 150%;
-    margin: 1em 2.5em 1em 1em;
+    /* width: 50%; */
+    /* font-size: 130%; */
+    margin-right: 2.5em;
+    padding-right: 1em;
+    background-color: lightgrey;
 }
-.Michael{background-color: E0E0FF;}
-.Kevin{background-color: FFE0E0;}
-.Josh{background-color: E0FFE0;}
+/* #values ul {
+    display: block;
+    float: right;
+} */
+.Michael {
+    background-color: dodgerblue;
+}
+.Kevin {
+    background-color: firebrick;
+}
+.Josh {
+    background-color: forestgreen;
+}
+.chart {
+    width: 100%;
+    min-height: 30%;
+    float: left;
+}
