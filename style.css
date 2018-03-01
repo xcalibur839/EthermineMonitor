@@ -17,7 +17,7 @@ h1 {
 .Section, .history {
     width: 32%;
     float: left; 
-    min-width: 280pt; 
+    min-width: 285pt; 
     font-size: 130%;
     margin: 0.2em;
 }
@@ -53,7 +53,7 @@ a {
 }
 .chart {
     width: 100%;
-    min-height: 140%;
+    min-height: 10em;
     margin-right: 0.2em;
     margin-bottom: 0.5em;
 }
