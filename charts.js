@@ -7,8 +7,8 @@ function drawChart() {
     for (var i = 0; i < WalletArray.length; i++) {
         var data = new google.visualization.DataTable();
         data.addColumn('datetime', 'Time');
-        data.addColumn('number', 'Effective');
-        data.addColumn('number', 'Local');
+        data.addColumn('number', 'Current');
+        data.addColumn('number', 'Reported');
         data.addColumn('number', 'Average');
 
         var options = {
