@@ -52,16 +52,19 @@ function displayCurrentStats() {
         + (WalletArray[i].currentStats.unpaid / ethOffset).toFixed(6) + " ETH</li>");
 
         
-        items.push("<li><ul>ETH per");
-        items.push("<li>Week: " + (WalletArray[i].currentStats.coinsPerMin * perWeekOffset).toFixed(6) + "</li>");
-        items.push("<li>Month: " + (WalletArray[i].currentStats.coinsPerMin * perMonthOffset).toFixed(6) + "</li>");
-        items.push("<li>Year: " + (WalletArray[i].currentStats.coinsPerMin * perYearOffset).toFixed(6) + "</li>");
-        items.push("</ul></li>");
-
-        items.push("<li><ul>USD per");
-        items.push("<li>Week: $" + (WalletArray[i].currentStats.usdPerMin * perWeekOffset).toFixed(2) + "</li>");
-        items.push("<li>Month: $" + (WalletArray[i].currentStats.usdPerMin * perMonthOffset).toFixed(2) + "</li>");
-        items.push("<li>Year: $" + (WalletArray[i].currentStats.usdPerMin * perYearOffset).toFixed(2) + "</li>");
+        items.push("<li><ul>ETH (USD) per");
+        items.push("<li>Week: " 
+        + (WalletArray[i].currentStats.coinsPerMin * perWeekOffset).toFixed(6) + " ($"
+        + (WalletArray[i].currentStats.usdPerMin * perWeekOffset).toFixed(2) + ")"
+        + "</li>");
+        items.push("<li>Month: " 
+        + (WalletArray[i].currentStats.coinsPerMin * perMonthOffset).toFixed(6) + " ($"
+        + (WalletArray[i].currentStats.usdPerMin * perMonthOffset).toFixed(2) + ")"
+        + "</li>");
+        items.push("<li>Year: " 
+        + (WalletArray[i].currentStats.coinsPerMin * perYearOffset).toFixed(6) + " ($"
+        + (WalletArray[i].currentStats.usdPerMin * perYearOffset).toFixed(2) + ")"
+        + "</li>");
         items.push("</ul></li>");
 
         //Add items to page
