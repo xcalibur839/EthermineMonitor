@@ -1,7 +1,4 @@
 google.charts.load('current', {packages: ['corechart', 'line']});
-$(document).ajaxStop(function() {
-    drawChart();
-});
 
 function drawChart() {
     for (var i = 0; i < WalletArray.length; i++) {
