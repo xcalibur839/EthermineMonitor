@@ -66,3 +66,9 @@ a {
 .link {
     font-size: 75%;
 }
+h3 {
+    margin-bottom: 0;
+}
+.subHeaders {
+    color: lightgrey;
+}

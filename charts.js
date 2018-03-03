@@ -40,5 +40,6 @@ function drawChart() {
     }
     catch (e) {
         console.log("Error loading chart\n" + e);
+        setTimeout(drawChart, 3000);
     }
 }
