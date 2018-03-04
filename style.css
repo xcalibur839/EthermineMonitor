@@ -17,7 +17,7 @@ h1 {
 .Section {
     width: 32%;
     float: left; 
-    min-width: 300pt; 
+    min-width: 300pt;
     font-size: 130%;
     margin: 0.2em;
 }
@@ -38,13 +38,14 @@ a {
 #values {
     float: left;
     width: 100%;
+    min-width: 300pt;
     background-color: lightgrey;
 }
 #values ul {
     font-size: 120%;
 }
 .values {
-    /* display: block; */
+    min-width: 250pt;
     float: left;
     margin: 1em;
 }
@@ -71,4 +72,11 @@ h3 {
 }
 .subHeaders {
     color: lightgrey;
+}
+#updateTime {
+    float: right;
+    padding-right: 2em;
+}
+.valueData {
+    float: left;
 }

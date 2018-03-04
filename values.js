@@ -2,47 +2,69 @@ function updateValues() {
     //Remove any existing items from the page
     var values = document.getElementById("values");
 
-     while (values && values.hasChildNodes()) {
+    while (values.hasChildNodes()) {
         values.removeChild(values.firstChild);
-     }
+    }
 
+    $( "<div/>", {
+        "class": "values",
+        "id": "ETH"
+    }).appendTo("#values");
     $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD", function(data) {
-        var items = [];
+        var ethItems = [];
         
         $("<h3/>", {
-                "class": "values",
-                html: "1 ETH = "
-        }).appendTo("#values");
+            "class": "valueData",
+            html: "1 ETH = "
+        }).appendTo("#ETH");
 
         $.each(data, function(key, val) {
-            items.push("<li id='" + key +"'>" + key + ": " + val + "</li>");
+            ethItems.push("<li>" + key + ": " + val + "</li>");
         });
 
-        items.reverse();
+        ethItems.reverse();
 
         $( "<ul/>", {
-                "class": "values",
-                html: items.join( "" )
-        }).appendTo( "#values" );
+            "class": "valueData",
+            html: ethItems.join( "" )
+        }).appendTo( "#ETH" );
     });
 
+    $( "<div/>", {
+        "class": "values",
+        "id": "BTC"
+    }).appendTo("#values");
     $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=ETH,USD", function(data) {
-        var items = [];
+        var btcItems = [];
         
         $("<h3/>", {
-                "class": "values",
-                html: "1 BTC = "
-        }).appendTo("#values");
+            "class": "valueData",
+            html: "1 BTC = "
+        }).appendTo("#BTC");
 
         $.each(data, function(key, val) {
-            items.push("<li id='" + key +"'>" + key + ": " + val + "</li>");
+            btcItems.push("<li>" + key + ": " + val + "</li>");
         });
 
-        items.reverse();
+        btcItems.reverse();
 
         $( "<ul/>", {
-                "class": "values",
-                html: items.join( "" )
-        }).appendTo( "#values" );
+            "class": "valueData",
+            html: btcItems.join( "" )
+        }).appendTo( "#BTC" );
     });
+    
+    $( "<div/>", {
+        "id": "updateTime"
+    }).appendTo("#values");
+
+    var tempDate = new Date();
+    var returnDate = "Page Last Updated: " + tempDate.getHours() + ":" 
+    + ("00" + tempDate.getMinutes()).slice(-2) + ":"
+    + ("00" + tempDate.getSeconds()).slice(-2) + " UTC "
+    + -(tempDate.getTimezoneOffset() / perHourOffset);
+
+    $( "<h4/>", {
+        html: returnDate
+    }).appendTo( "#updateTime" );
 }
