@@ -17,7 +17,7 @@ h1 {
 .Section {
     width: 32%;
     float: left; 
-    min-width: 285pt; 
+    min-width: 300pt; 
     font-size: 130%;
     margin: 0.2em;
 }

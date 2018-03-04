@@ -12,8 +12,7 @@ function drawChart() {
             var options = {
                 title: WalletArray[i].name,
                 hAxis: {
-                    title: 'Time',
-                    baselineColor: 'red'
+                    title: 'Time (24h)',
                 },
                 vAxis: {
                     title: 'Hashrate (Mh/s)'
