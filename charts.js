@@ -38,7 +38,7 @@ function drawChart() {
         }
     }
     catch (e) {
-        console.log("Error loading chart\n" + e);
+        console.log("Error loading chart, retry in 3s\n" + e);
         setTimeout(drawChart, 3000);
     }
 }
