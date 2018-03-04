@@ -1,6 +1,9 @@
 function loadHistory() {
 	WalletArray = [];
+	EthValues = [];
+    BtcValues = [];
 
+	//Load wallet data
 	$.each(wallets, function(wk, wv) {
 		var wallet = new JSWallet(wk, wv);
 
@@ -19,7 +22,19 @@ function loadHistory() {
 		WalletArray.push(wallet);
 	});
 
-	updateValues();
+	//Load value data
+	$.getJSON("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD,BTC", function(data) {
+        $.each(data, function(key, val) {
+            EthValues.push({[key]: val});
+        });
+	});
+	$.getJSON("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,ETH", function(data) {
+        $.each(data, function(key, val) {
+            BtcValues.push({[key]: val});
+        });
+    });
+
+	//updateValues();
 	setTimeout(loadHistory, 30000);
 }
 loadHistory();

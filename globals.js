@@ -19,3 +19,5 @@ function JSWallet(name, wallet) {
 }
 
 var WalletArray = [];
+var EthValues = [];
+var BtcValues = [];

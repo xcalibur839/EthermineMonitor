@@ -1,3 +1,5 @@
+$(document).ajaxStop(updateValues);
+
 function updateValues() {
     //Remove any existing items from the page
     var values = document.getElementById("values");
@@ -6,53 +8,56 @@ function updateValues() {
         values.removeChild(values.firstChild);
     }
 
+    //Add ETH Values
     $( "<div/>", {
         "class": "values",
         "id": "ETH"
     }).appendTo("#values");
-    $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD", function(data) {
-        var ethItems = [];
-        
-        $("<h3/>", {
-            "class": "valueData",
-            html: "1 ETH = "
-        }).appendTo("#ETH");
 
-        $.each(data, function(key, val) {
-            ethItems.push("<li>" + key + ": " + val + "</li>");
-        });
+    var ethItems = [];
+    
+    $("<h3/>", {
+        "class": "valueData",
+        html: "1 ETH = "
+    }).appendTo("#ETH");
 
-        ethItems.reverse();
-
-        $( "<ul/>", {
-            "class": "valueData",
-            html: ethItems.join( "" )
-        }).appendTo( "#ETH" );
+    $.each(EthValues, function(key, val) {
+        $.each(val, function(name, value) {
+            ethItems.push("<li>" + name + ": " + value + "</li>");
+        })
     });
 
+    $( "<ul/>", {
+        "class": "valueData",
+        html: ethItems.join( "" )
+    }).appendTo( "#ETH" );
+
+
+    //Add BTC Values
     $( "<div/>", {
         "class": "values",
         "id": "BTC"
     }).appendTo("#values");
-    $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=ETH,USD", function(data) {
-        var btcItems = [];
-        
-        $("<h3/>", {
-            "class": "valueData",
-            html: "1 BTC = "
-        }).appendTo("#BTC");
 
-        $.each(data, function(key, val) {
-            btcItems.push("<li>" + key + ": " + val + "</li>");
-        });
+    var btcItems = [];
+    
+    $("<h3/>", {
+        "class": "valueData",
+        html: "1 BTC = "
+    }).appendTo("#BTC");
 
-        btcItems.reverse();
-
-        $( "<ul/>", {
-            "class": "valueData",
-            html: btcItems.join( "" )
-        }).appendTo( "#BTC" );
+    $.each(BtcValues, function(key, val) {
+        $.each(val, function(name, value) {
+            btcItems.push("<li>" + name + ": " + value + "</li>");
+        })
     });
+
+    //btcItems.reverse();
+
+    $( "<ul/>", {
+        "class": "valueData",
+        html: btcItems.join( "" )
+    }).appendTo( "#BTC" );
     
     $( "<div/>", {
         "id": "updateTime"
