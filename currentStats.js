@@ -1,6 +1,13 @@
 $(document).ajaxStop(displayCurrentStats);
 
 function displayCurrentStats() {
+    //Remove any existing items from the page
+    var current = document.getElementById("current");
+
+     while (current.hasChildNodes()) {
+        current.removeChild(current.firstChild);
+    }
+
     for (var i = 0; i <  WalletArray.length; i++) {
         var items = [];
             

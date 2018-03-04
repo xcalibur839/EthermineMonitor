@@ -1,39 +1,49 @@
-$.getJSON("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD", function(data) {
-   var items = [];
-   
-   $("<h3/>", {
-        "class": "values",
-        html: "1 ETH = "
-    }).appendTo("#values");
+function updateValues() {
+    //Remove any existing items from the page
+    var values = document.getElementById("values");
 
-   $.each(data, function(key, val) {
-       items.push("<li id='" + key +"'>" + key + ": " + val + "</li>");
-   });
+     while (values && values.hasChildNodes()) {
+        values.removeChild(values.firstChild);
+     }
 
-   items.reverse();
+    $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=BTC,USD", function(data) {
+        var items = [];
+        
+        $("<h3/>", {
+                "class": "values",
+                html: "1 ETH = "
+        }).appendTo("#values");
 
-   $( "<ul/>", {
-        "class": "values",
-        html: items.join( "" )
-    }).appendTo( "#values" );
-});
+        $.each(data, function(key, val) {
+            items.push("<li id='" + key +"'>" + key + ": " + val + "</li>");
+        });
 
-$.getJSON("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=ETH,USD", function(data) {
-   var items = [];
-   
-   $("<h3/>", {
-        "class": "values",
-        html: "1 BTC = "
-    }).appendTo("#values");
+        items.reverse();
 
-   $.each(data, function(key, val) {
-       items.push("<li id='" + key +"'>" + key + ": " + val + "</li>");
-   });
+        $( "<ul/>", {
+                "class": "values",
+                html: items.join( "" )
+        }).appendTo( "#values" );
+    });
 
-   items.reverse();
+    $.getJSON("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=ETH,USD", function(data) {
+        var items = [];
+        
+        $("<h3/>", {
+                "class": "values",
+                html: "1 BTC = "
+        }).appendTo("#values");
 
-   $( "<ul/>", {
-        "class": "values",
-        html: items.join( "" )
-    }).appendTo( "#values" );
-});
+        $.each(data, function(key, val) {
+            items.push("<li id='" + key +"'>" + key + ": " + val + "</li>");
+        });
+
+        items.reverse();
+
+        $( "<ul/>", {
+                "class": "values",
+                html: items.join( "" )
+        }).appendTo( "#values" );
+    });
+}
+updateValues();
