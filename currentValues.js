@@ -65,8 +65,7 @@ function displayCurrentValues() {
 
     var tempDate = new Date();
     var returnDate = "Page Last Updated: " + tempDate.getHours() + ":" 
-    + ("00" + tempDate.getMinutes()).slice(-2) + ":"
-    + ("00" + tempDate.getSeconds()).slice(-2) + " UTC "
+    + ("00" + tempDate.getMinutes()).slice(-2) + " UTC"
     + -(tempDate.getTimezoneOffset() / perHourOffset);
 
     $( "<h4/>", {
