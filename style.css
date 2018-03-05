@@ -47,7 +47,7 @@ a {
 .values {
     min-width: 250pt;
     float: left;
-    margin: 1em;
+    padding-left: 2em;
 }
 .Michael {
     background-color: dodgerblue;

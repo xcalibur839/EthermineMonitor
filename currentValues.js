@@ -1,6 +1,6 @@
-$(document).ajaxStop(updateValues);
+$(document).ajaxStop(displayCurrentValues);
 
-function updateValues() {
+function displayCurrentValues() {
     //Remove any existing items from the page
     var values = document.getElementById("values");
 

@@ -1,4 +1,4 @@
-function loadHistory() {
+function loadData() {
 	WalletArray = [];
 	EthValues = [];
     BtcValues = [];
@@ -34,7 +34,6 @@ function loadHistory() {
         });
     });
 
-	//updateValues();
-	setTimeout(loadHistory, 30000);
+	setTimeout(loadData, 60000);
 }
-loadHistory();
+loadData();
