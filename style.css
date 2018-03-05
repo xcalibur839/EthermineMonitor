@@ -1,10 +1,6 @@
+/* tags */
 html {
     background-color: darkslategrey
-}
-#current, #history {
-    width: 100%; 
-    background-color: lightgrey;
-    margin-bottom: 0;
 }
 h1 {
     width: 100%; 
@@ -14,6 +10,34 @@ h1 {
     margin-left: auto;
     margin-right: auto;
 }
+h3 {
+    margin-bottom: 0;
+}
+a {
+    float: left;
+    display: block;
+    width: 100%;
+}
+
+/* ids */
+#current, #history {
+    width: 100%;
+}
+#values {
+    float: left;
+    width: 100%;
+    min-width: 300pt;
+    background-color: lightgrey;
+}
+#values ul {
+    font-size: 120%;
+}
+#updateTime {
+    float: right;
+    padding-right: 2em;
+}
+
+/* classes */
 .Section {
     width: 32%;
     float: left; 
@@ -30,33 +54,10 @@ h1 {
 .current {
     padding-bottom: 2em;
 }
-a {
-    float: left;
-     display: block;
-     width: 100%;
-}
-#values {
-    float: left;
-    width: 100%;
-    min-width: 300pt;
-    background-color: lightgrey;
-}
-#values ul {
-    font-size: 120%;
-}
 .values {
     min-width: 250pt;
     float: left;
     padding-left: 2em;
-}
-.Michael {
-    background-color: dodgerblue;
-}
-.Kevin {
-    background-color: firebrick;
-}
-.Josh {
-    background-color: forestgreen;
 }
 .chart {
     width: 100%;
@@ -67,16 +68,20 @@ a {
 .link {
     font-size: 75%;
 }
-h3 {
-    margin-bottom: 0;
-}
 .subHeaders {
     color: lightgrey;
 }
-#updateTime {
-    float: right;
-    padding-right: 2em;
-}
 .valueData {
     float: left;
+}
+
+/* wallets */
+.Michael {
+    background-color: dodgerblue;
+}
+.Kevin {
+    background-color: firebrick;
+}
+.Josh {
+    background-color: forestgreen;
 }

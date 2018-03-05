@@ -1,4 +1,5 @@
 function loadData() {
+	//Reset arrays to empty
 	WalletArray = [];
 	EthValues = [];
     BtcValues = [];
@@ -34,6 +35,9 @@ function loadData() {
         });
     });
 
+	//Wait 60s before calling loadData again. 
+	//This effectively causes the loadData function to loop every 60s
 	setTimeout(loadData, 60000);
 }
+//Initial function call to start the loadData loop
 loadData();

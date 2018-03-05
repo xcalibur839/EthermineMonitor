@@ -1,3 +1,4 @@
+//Register displayCurrentStats as an event handler for ajaxStop to run each time the data finishes loading
 $(document).ajaxStop(displayCurrentStats);
 
 function displayCurrentStats() {
@@ -8,18 +9,19 @@ function displayCurrentStats() {
         current.removeChild(current.firstChild);
     }
 
+    //Add each item from WalletArray to the page
     for (var i = 0; i <  WalletArray.length; i++) {
         var items = [];
             
+        //Header section
         items.push("<p><h3 class=\"" + WalletArray[i].name + "\">" + WalletArray[i].name + "'s Miner</h3>");
 
         items.push("<span class='subHeaders'>Active Workers: " + WalletArray[i].currentStats.activeWorkers + "</span><br />");
 
         items.push("<span class='subHeaders'>Wallet:</span> <a class=\"link\" target=\"_blank\" href=\"https://www.etherchain.org/account/" 
         + WalletArray[i].wallet + "\">" + WalletArray[i].wallet + "</a></p>");
-    
-        //items.push("<li id='" + key + "'>" + returnKey + ": " + returnVal + "</li>");
         
+        //Hashrate section
         items.push("<li><span class='subHeaders'>Current Hashrate: " 
         + (WalletArray[i].currentStats.currentHashrate / mHashOffset).toFixed(2) + " Mh/s</span></li>");
         
@@ -29,6 +31,7 @@ function displayCurrentStats() {
         items.push("<li><span class='subHeaders'>Average Hashrate: " 
         + (WalletArray[i].currentStats.averageHashrate / mHashOffset).toFixed(2) + " Mh/s</span></li>");
 
+        //Share section
         items.push("<li>Valid Shares: " 
         + WalletArray[i].currentStats.validShares + "</li>");
 
@@ -38,6 +41,7 @@ function displayCurrentStats() {
         items.push("<li>Stale Shares: " 
         + WalletArray[i].currentStats.staleShares + "</li>");
 
+        //Payment section
         items.push("<li>Unpaid Balance: " 
         + (WalletArray[i].currentStats.unpaid / ethOffset).toFixed(6) + " ETH</li>");
 
@@ -57,7 +61,8 @@ function displayCurrentStats() {
         + "</li>");
         items.push("</ul></li>");
 
-        //Time related
+        //Time section
+        //The slice method below forces minutes < 10 to start with a 0
         var tempDate = new Date(WalletArray[i].currentStats.lastSeen * timeOffset);
         var returnDate = tempDate.getHours() + ":" 
         + ("00" + tempDate.getMinutes()).slice(-2) + " UTC"
@@ -89,5 +94,6 @@ function displayCurrentStats() {
         }).appendTo( "#" + WalletArray[i].name + "Section" );
     }
 
+    //Once the stats have been updated, draw the chart for this wallet
     drawChart();
 }

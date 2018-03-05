@@ -1,3 +1,4 @@
+//Register displayCurrentValues as an event handler for ajaxStop to run each time the data finishes loading
 $(document).ajaxStop(displayCurrentValues);
 
 function displayCurrentValues() {
@@ -52,17 +53,17 @@ function displayCurrentValues() {
         })
     });
 
-    //btcItems.reverse();
-
     $( "<ul/>", {
         "class": "valueData",
         html: btcItems.join( "" )
     }).appendTo( "#BTC" );
     
+    //Add last updated time
     $( "<div/>", {
         "id": "updateTime"
     }).appendTo("#values");
 
+    //The slice method below forces minutes < 10 to start with a 0
     var tempDate = new Date();
     var returnDate = "Page Last Updated: " + tempDate.getHours() + ":" 
     + ("00" + tempDate.getMinutes()).slice(-2) + " UTC"
