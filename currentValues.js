@@ -9,54 +9,38 @@ function displayCurrentValues() {
         values.removeChild(values.firstChild);
     }
 
-    //Add ETH Values
-    $( "<div/>", {
-        "class": "values",
-        "id": "ETH"
-    }).appendTo("#values");
+    //Display all items loaded to the ValuesArray in loadData
+    for (var i = 0; i < ValuesArray.length; i++) {
+        var items = [];
+        
+        $( "<div/>", {
+            "class": "valueSection",
+            "id": ValuesArray[i].coin + "Section"
+        }).appendTo("#values");
 
-    var ethItems = [];
-    
-    $("<h3/>", {
-        "class": "valueData",
-        html: "1 ETH = "
-    }).appendTo("#ETH");
+        /* $("<h3/>", {
+            "class": "valueData",
+            html: "1 " + ValuesArray[i].coin + " = "
+        }).appendTo("#" + ValuesArray[i].coin + "Section"); */
 
-    $.each(EthValues, function(key, val) {
-        $.each(val, function(name, value) {
-            ethItems.push("<li>" + name + ": " + value + "</li>");
-        })
-    });
+        items.push("<h3 class='valueData'>1 " + ValuesArray[i].coin + " = " + "</h3>");
+        $.each(ValuesArray[i].value, function(key, val) {
 
-    $( "<ul/>", {
-        "class": "valueData",
-        html: ethItems.join( "" )
-    }).appendTo( "#ETH" );
+            $.each(val, function(name, value) {
+                items.push("<li>" + name + ": " + value + "</li>");
+            })
+        });
 
+        $( "<ul/>", {
+            "class": "valueData",
+            html: items.join( "" )
+        }).appendTo( "#" + ValuesArray[i].coin + "Section" );
 
-    //Add BTC Values
-    $( "<div/>", {
-        "class": "values",
-        "id": "BTC"
-    }).appendTo("#values");
-
-    var btcItems = [];
-    
-    $("<h3/>", {
-        "class": "valueData",
-        html: "1 BTC = "
-    }).appendTo("#BTC");
-
-    $.each(BtcValues, function(key, val) {
-        $.each(val, function(name, value) {
-            btcItems.push("<li>" + name + ": " + value + "</li>");
-        })
-    });
-
-    $( "<ul/>", {
-        "class": "valueData",
-        html: btcItems.join( "" )
-    }).appendTo( "#BTC" );
+        $( "<div/>", {
+            "class": "valueChart",
+            "id": ValuesArray[i].coin
+        }).appendTo( "#" + ValuesArray[i].coin + "Section" );
+    }
     
     //Add last updated time
     $( "<div/>", {

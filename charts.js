@@ -5,6 +5,7 @@ function drawChart() {
     //On first load, Google objects might not fully load before drawChart is called
     //Catch any errors, wait 3s, and try again to account for this
     try {
+        //Draw the WalletArray charts
         for (var i = 0; i < WalletArray.length; i++) {
             //Prepare the chart table and columns
             var data = new google.visualization.DataTable();
@@ -41,6 +42,37 @@ function drawChart() {
 
             //Draw the chart
             var chart = new google.visualization.LineChart(document.getElementById(WalletArray[i].name));
+            chart.draw(data, options);
+        }
+
+        //Draw the ValuesArray charts
+        for (var i = 0; i < ValuesArray.length; i++) {
+            var data = new google.visualization.DataTable();
+            data.addColumn('datetime', 'Time');
+            data.addColumn('number', 'Value');
+
+            var options = {
+                title: ValuesArray[i].coin,
+                hAxis: {
+                    title: 'Time (' + (valueHistoryLimit + 1) + 'd)',
+                },
+                vAxis: {
+                    title: 'Value (USD)'
+                },
+                legend: { 
+                    position: 'none'
+                },
+                explorer: {}
+            };
+
+            for (var j = 0; j < ValuesArray[i].history.length; j++) {
+                data.addRow([
+                    new Date(ValuesArray[i].history[j].time * timeOffset),
+                    ValuesArray[i].history[j].close
+                ]);
+            }
+
+            var chart = new google.visualization.LineChart(document.getElementById(ValuesArray[i].coin));
             chart.draw(data, options);
         }
     }

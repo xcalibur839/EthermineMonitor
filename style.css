@@ -46,6 +46,10 @@ a {
     font-size: 130%;
     margin: 0.2em;
 }
+.valueSection {
+    float: left;
+    margin: 0.2em;
+}
 .history {
     float: left; 
     min-width: 285pt; 
@@ -76,6 +80,11 @@ a {
 }
 .valueData {
     float: left;
+}
+.valueChart {
+    height: 10em;
+    float: left;
+    padding-left: 2em;
 }
 
 /* wallets */
