@@ -14,12 +14,12 @@ function displayCurrentStats() {
         var items = [];
             
         //Header section
-        items.push("<p><h3 class=\"" + WalletArray[i].name + "\">" + WalletArray[i].name + "'s Miner</h3>");
+        items.push("<h3 class=\"" + WalletArray[i].name + "\">" + WalletArray[i].name + "'s Miner</h3>");
 
         items.push("<span class='subHeaders'>Active Workers: " + WalletArray[i].currentStats.activeWorkers + "</span><br />");
 
         items.push("<span class='subHeaders'>Wallet:</span> <a class=\"link\" target=\"_blank\" href=\"https://www.etherchain.org/account/" 
-        + WalletArray[i].wallet + "\">" + WalletArray[i].wallet + "</a></p>");
+        + WalletArray[i].wallet + "\">" + WalletArray[i].wallet + "</a>");
         
         //Hashrate section
         items.push("<li><span class='subHeaders'>Current Hashrate: " 
