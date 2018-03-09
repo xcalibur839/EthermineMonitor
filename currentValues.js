@@ -18,12 +18,7 @@ function displayCurrentValues() {
             "id": ValuesArray[i].coin + "Section"
         }).appendTo("#values");
 
-        /* $("<h3/>", {
-            "class": "valueData",
-            html: "1 " + ValuesArray[i].coin + " = "
-        }).appendTo("#" + ValuesArray[i].coin + "Section"); */
-
-        items.push("<h3 class='valueData'>1 " + ValuesArray[i].coin + " = " + "</h3>");
+        items.push("<h3 class='valueData'>1 " + ValuesArray[i].coin + " = " + "</h3><br /><br /><br />");
         $.each(ValuesArray[i].value, function(key, val) {
 
             $.each(val, function(name, value) {
