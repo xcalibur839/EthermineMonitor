@@ -9,10 +9,9 @@
 		jquery
 		google charts loader
 		globals
-		currentValues/currentStats/charts (any order after globals)
+		loadData/currentValues/currentStats/charts (any order after globals)
 	
 	Two divs need to be created in the body, with ids "values" and "current"
-	loadData should be loaded in the body of the document after the divs
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +20,7 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 		<script src="https://www.gstatic.com/charts/loader.js"></script>
 		<script src="globals.js"></script>
+		<script src="loadData.js"></script>
 		<script src="currentValues.js"></script>
 		<script src="currentStats.js"></script>
 		<script src="charts.js"></script>
@@ -34,6 +34,5 @@
 		<div id="values"></div>
 		<div id="current"></div>
 		<a href="history.html">Text History</a>
-		<script src="loadData.js"></script>
 	</body>
 </html>

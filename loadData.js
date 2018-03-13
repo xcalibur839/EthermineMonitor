@@ -1,3 +1,6 @@
+//Register loadData as an event handler for document ready to begin the loop upon page load
+$(document).ready(loadData);
+
 function loadData() {
 	//Reset arrays to empty
 	WalletArray = [];
@@ -66,4 +69,4 @@ function loadData() {
 	setTimeout(loadData, 60000);
 }
 //Initial function call to start the loadData loop
-loadData();
+//loadData();
