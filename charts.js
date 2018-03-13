@@ -1,6 +1,9 @@
 //Attempt to load Google chart library
 google.charts.load('current', {packages: ['corechart', 'line']});
 
+//Register drawChart as an event handler for ajaxStop to run each time the data finishes loading
+$(document).ajaxStop(drawChart);
+
 function drawChart() {
     //On first load, Google objects might not fully load before drawChart is called
     //Catch any errors, wait 3s, and try again to account for this

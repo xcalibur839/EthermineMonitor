@@ -95,5 +95,5 @@ function displayCurrentStats() {
     }
 
     //Once the stats have been updated, draw the chart for this wallet
-    drawChart();
+    //drawChart();
 }
