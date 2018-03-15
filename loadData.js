@@ -39,7 +39,7 @@ function loadData() {
         });
 	});
 	$.getJSON("https://min-api.cryptocompare.com/data/histoday?fsym=ETH&tsym=USD&limit=" 
-	+ valueHistoryLimit, function(data) {
+	+ (valueHistoryLimit - 1), function(data) {
 		var rootData = data.Data;
 		$.each(rootData, function(key, val) {
 			ethValue.history.push(val);
@@ -54,7 +54,7 @@ function loadData() {
         });
 	});
 	$.getJSON("https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit="
-	+ valueHistoryLimit, function(data) {
+	+ (valueHistoryLimit - 1), function(data) {
 		var rootData = data.Data;
 		$.each(rootData, function(key, val) {
 			btcValue.history.push(val);
