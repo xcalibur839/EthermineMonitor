@@ -17,6 +17,10 @@ function drawChart() {
             data.addColumn('number', 'Reported');
             data.addColumn('number', 'Average');
 
+            //Add share data
+            data.addColumn('number', 'Stale');
+            data.addColumn('number', 'Invalid');
+
             //Set the chart options
             var options = {
                 title: WalletArray[i].name,
@@ -27,10 +31,18 @@ function drawChart() {
                     title: 'Hashrate (Mh/s)'
                 },
                 legend: { 
-                    position: 'bottom',
-                    display: 'none'
+                    position: 'bottom'
                 },
-                explorer: {}
+                seriesType: 'line',
+                series: {
+                    3: {
+                        type: 'steppedArea'
+                    },
+                    4: {
+                        type: 'steppedArea',
+                        visibleInLegend: 'false'
+                    }
+                }
             };
 
             //Add the history data from the WalletArray to the chart
@@ -39,12 +51,14 @@ function drawChart() {
                     new Date(WalletArray[i].history[j].time * timeOffset), 
                     WalletArray[i].history[j].currentHashrate / mHashOffset,
                     WalletArray[i].history[j].reportedHashrate / mHashOffset,
-                    WalletArray[i].history[j].averageHashrate / mHashOffset
+                    WalletArray[i].history[j].averageHashrate / mHashOffset,
+                    WalletArray[i].history[j].staleShares,
+                    WalletArray[i].history[j].invalidShares
                 ]);
             }
 
             //Draw the chart
-            var chart = new google.visualization.LineChart(document.getElementById(WalletArray[i].name));
+            var chart = new google.visualization.ComboChart(document.getElementById(WalletArray[i].name));
             chart.draw(data, options);
         }
 
