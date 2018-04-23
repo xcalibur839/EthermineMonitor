@@ -5,11 +5,9 @@ function loadData() {
 	//Reset arrays to empty
 	WalletArray = [];
 	ValuesArray = [];
-	EthValues = [];
-    BtcValues = [];
 
 	//Load wallet data
-	$.each(wallets, function(wk, wv) {
+	$.each(ethermine, function(wk, wv) {
 		var wallet = new JSWallet(wk, wv);
 
 		$.getJSON("https://api.ethermine.org/miner/" + wv + "/history", function (data) {
