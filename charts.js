@@ -42,7 +42,13 @@ function drawChart() {
                         type: 'steppedArea',
                         visibleInLegend: 'false'
                     }
-                }
+                },
+                colors: [
+                    '#3366CC', //First default Google chart color (http://there4.io/2012/05/02/google-chart-color-list/)
+                    '#DC3912', //Second default
+                    '#FF9900', //Third default
+                    '#006400' //DarkGreen (https://www.w3schools.com/colors/color_tryit.asp?color=DarkGreen)
+                ]
             };
 
             //Add the history data from the WalletArray to the chart
