@@ -19,7 +19,7 @@ function displayCurrentStats() {
         items.push("<span class='subHeaders'>Active Workers: " + WalletArray[i].currentStats.activeWorkers + "</span><br />");
 
         items.push("<span class='subHeaders'>Wallet:</span> <a class=\"link\" target=\"_blank\" href=\"https://www.ethermine.org/miners/" 
-        + WalletArray[i].wallet + "\">" + WalletArray[i].wallet + "</a>");
+        + WalletArray[i].wallet + "\">" + WalletArray[i].wallet + "</a><br />");
 
         items.push("<a class=\"link\" target=\"_blank\" href=\"https://www.etherchain.org/account/" + WalletArray[i].wallet + "\">" 
         + "(etherchain.org)" + "</a><br /><br />");
