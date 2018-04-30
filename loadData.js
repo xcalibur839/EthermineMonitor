@@ -32,7 +32,6 @@ function loadData() {
 	//Load ETH
 	$.getJSON("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD,BTC", function(data) {
         $.each(data, function(key, val) {
-			//EthValues.push({[key]: val});
 			ethValue.value.push({[key]: val});
         });
 	});
@@ -47,7 +46,6 @@ function loadData() {
 	//Load BTC
 	$.getJSON("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,ETH", function(data) {
         $.each(data, function(key, val) {
-			//BtcValues.push({[key]: val});
 			btcValue.value.push({[key]: val});
         });
 	});
@@ -66,5 +64,3 @@ function loadData() {
 	//This effectively causes the loadData function to loop every 60s
 	setTimeout(loadData, 60000);
 }
-//Initial function call to start the loadData loop
-//loadData();

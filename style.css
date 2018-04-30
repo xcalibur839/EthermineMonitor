@@ -21,13 +21,14 @@ ul {
 }
 
 /* ids */
-#current, #history {
+#current {
     width: 100%;
 }
 #values {
     margin-bottom: 0.5em;
     float: left;
     width: 100%;
+    min-width: 28em;
     background-color: lightgrey;
     box-shadow: .5em .5em #000000;
 }
@@ -41,20 +42,16 @@ ul {
 
 /* classes */
 .Section {
+    position: relative;
     color: rgb(201, 201, 201);
     float: left; 
-    min-width: 30%;
+    min-width: 20em;
+    width: 30%;
     font-size: 130%;
     margin: 0.2em;
 }
 .valueSection {
     float: left;
-    margin: 0.2em;
-}
-.history {
-    float: left; 
-    min-width: 285pt; 
-    font-size: 130%;
     margin: 0.2em;
 }
 .current {
@@ -81,17 +78,19 @@ ul {
     height: 10em;
     float: left;
     padding-left: 2em;
+    min-width: 25em;
 }
 .subHeaders {
     display: block;
 }
 .link {
     font-size: 75%;
+    color: black;
 }
 
 /* wallets */
 .Michael {
-    background-color: dodgerblue;
+    background-color: rgb(30, 101, 255);
 }
 .Kevin {
     background-color: firebrick;

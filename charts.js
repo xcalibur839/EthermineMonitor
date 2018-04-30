@@ -84,8 +84,7 @@ function drawChart() {
                 },
                 legend: { 
                     position: 'none'
-                },
-                explorer: {}
+                }
             };
 
             for (var j = 0; j < ValuesArray[i].history.length; j++) {
