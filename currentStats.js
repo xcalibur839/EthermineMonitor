@@ -16,39 +16,35 @@ function displayCurrentStats() {
         //Header section
         items.push("<h3 class=\"" + WalletArray[i].name + "\">" + WalletArray[i].name + "'s Miner</h3>");
 
-        items.push("<span class='subHeaders'>Active Workers: " + WalletArray[i].currentStats.activeWorkers + "</span><br />");
+        items.push("<span class='subHeaders'>Active Workers: " + WalletArray[i].currentStats.activeWorkers + "</span>");
 
         items.push("<span class='subHeaders'>Wallet:</span> <a class=\"link\" target=\"_blank\" href=\"https://www.ethermine.org/miners/" 
-        + WalletArray[i].wallet + "\">" + WalletArray[i].wallet + "</a><br />");
+        + WalletArray[i].wallet + "\">" + WalletArray[i].wallet + "</a>");
 
-        items.push("<a class=\"link\" target=\"_blank\" href=\"https://www.etherchain.org/account/" + WalletArray[i].wallet + "\">" 
-        + "(etherchain.org)" + "</a><br /><br />");
+        items.push("<a class=\"link\" target=\"_blank\" href=\"https://www.etherchain.org/account/" + WalletArray[i].wallet + "\">" + "(etherchain.org)"
+        + "</a>");
         
-        //Hashrate section
-        items.push("<li><span class='subHeaders'>Current Hashrate: " 
-        + (WalletArray[i].currentStats.currentHashrate / mHashOffset).toFixed(2) + " Mh/s</span></li>");
-        
-        items.push("<li><span class='subHeaders'>Reported Hashrate: " 
-        + (WalletArray[i].currentStats.reportedHashrate / mHashOffset).toFixed(2) + " Mh/s</span></li>");
-
-        items.push("<li><span class='subHeaders'>Average Hashrate: " 
-        + (WalletArray[i].currentStats.averageHashrate / mHashOffset).toFixed(2) + " Mh/s</span></li>");
-
-        //Share section
-        items.push("<li>Valid Shares: " 
-        + WalletArray[i].currentStats.validShares + "</li>");
-
-        items.push("<li>Invalid Shares: " 
-        + WalletArray[i].currentStats.invalidShares + "</li>");
-
-        items.push("<li>Stale Shares: " 
-        + WalletArray[i].currentStats.staleShares + "</li>");
-
         //Payment section
-        items.push("<li>Unpaid Balance: " 
-        + (WalletArray[i].currentStats.unpaid / ethOffset).toFixed(6) + " ETH</li>");
+        items.push("<li>Unpaid ETH: " 
+        + (WalletArray[i].currentStats.unpaid / ethOffset).toFixed(6) + " ($" 
+        + ((WalletArray[i].currentStats.unpaid / ethOffset) * ValuesArray[0].value[0].USD).toFixed(2)
+        + " USD)</li>");
 
+        //Hashrate section
+        items.push("<li><ul>Hashrate:");
+        items.push("<li>Current: "
+        + (WalletArray[i].currentStats.currentHashrate / mHashOffset).toFixed(2) + " Mh/s"
+        + " (" + WalletArray[i].currentStats.validShares + " shares)</li>");
         
+        items.push("<li>Reported: " 
+        + (WalletArray[i].currentStats.reportedHashrate / mHashOffset).toFixed(2) + " Mh/s</li>");
+
+        items.push("<li>Average: " 
+        + (WalletArray[i].currentStats.averageHashrate / mHashOffset).toFixed(2) + " Mh/s</li>");
+
+        items.push("</ul></li>");
+
+        //Payrate section
         items.push("<li><ul>ETH (USD) per");
         items.push("<li>Week: " 
         + (WalletArray[i].currentStats.coinsPerMin * perWeekOffset).toFixed(6) + " ($"
@@ -96,7 +92,4 @@ function displayCurrentStats() {
             "id": WalletArray[i].name
         }).appendTo( "#" + WalletArray[i].name + "Section" );
     }
-
-    //Once the stats have been updated, draw the chart for this wallet
-    //drawChart();
 }

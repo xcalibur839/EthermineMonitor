@@ -14,9 +14,10 @@ h3 {
     margin: 0;
 }
 a {
-    float: left;
     display: block;
-    width: 100%;
+}
+ul {
+    margin-bottom: .5em;
 }
 
 /* ids */
@@ -27,7 +28,6 @@ a {
     margin-bottom: 0.5em;
     float: left;
     width: 100%;
-    min-width: 300pt;
     background-color: lightgrey;
     box-shadow: .5em .5em #000000;
 }
@@ -41,9 +41,9 @@ a {
 
 /* classes */
 .Section {
-    width: 32%;
+    color: rgb(201, 201, 201);
     float: left; 
-    min-width: 300pt;
+    min-width: 30%;
     font-size: 130%;
     margin: 0.2em;
 }
@@ -59,7 +59,8 @@ a {
 }
 .current {
     margin-top: 0;
-    padding-bottom: 2em;
+    margin-bottom: .5em;
+    padding: 1.5em;
     box-shadow: .5em .5em #000000;
 }
 .values {
@@ -70,23 +71,22 @@ a {
 .chart {
     width: 100%;
     min-height: 13em;
-    margin-right: 0.2em;
-    margin-bottom: 0.5em;
     box-shadow: .5em .5em #000000;
-}
-.link {
-    font-size: 75%;
-}
-.subHeaders {
-    color: lightgrey;
 }
 .valueData {
     float: left;
+    margin-right: 1em;
 }
 .valueChart {
     height: 10em;
     float: left;
     padding-left: 2em;
+}
+.subHeaders {
+    display: block;
+}
+.link {
+    font-size: 75%;
 }
 
 /* wallets */
@@ -97,5 +97,5 @@ a {
     background-color: firebrick;
 }
 .Josh {
-    background-color: forestgreen;
+    background-color: green;
 }
