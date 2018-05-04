@@ -26,39 +26,55 @@ function loadData() {
 	});
 
 	//Load value data
-	var ethValue = new JSValues("ETH");
-	var btcValue = new JSValues("BTC");
+	$.each(cryptocurrency, function(coinIndex) {
+		var coinData = new JSValues(cryptocurrency[coinIndex]);
+		var BaseURL = "https://min-api.cryptocompare.com/data/";
+		var PriceURL = "fsym="
+		var HistoryURL = "fsym="
+		
+		//Price can be converted to multiple currencies but history only sypports one
+		PriceURL += coinData.coin + "&tsyms=";
+		HistoryURL += coinData.coin + "&tsym=";
 
-	//Load ETH
-	$.getJSON("https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD,BTC", function(data) {
-        $.each(data, function(key, val) {
-			ethValue.value.push({[key]: val});
-        });
-	});
-	$.getJSON("https://min-api.cryptocompare.com/data/histoday?fsym=ETH&tsym=USD&limit=" 
-	+ (valueHistoryLimit - 1), function(data) {
-		var rootData = data.Data;
-		$.each(rootData, function(key, val) {
-			ethValue.history.push(val);
-		});
-	});
+		//If there is at least one fiat currency specified, use that
+		if (fiat.length >= 1) {
+			PriceURL += fiat[0];
+			HistoryURL += fiat[0];
+		}
+		else { //Otherwise default to USD
+			PriceURL += "USD";
+			HistoryURL += "USD";
+		}
 
-	//Load BTC
-	$.getJSON("https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD,ETH", function(data) {
-        $.each(data, function(key, val) {
-			btcValue.value.push({[key]: val});
-        });
-	});
-	$.getJSON("https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit="
-	+ (valueHistoryLimit - 1), function(data) {
-		var rootData = data.Data;
-		$.each(rootData, function(key, val) {
-			btcValue.history.push(val);
+		//If there are any additional currencies specified, add them now
+		for (var i = 1; i < fiat.length; i++) {
+			PriceURL += "," + fiat[i];
+		}
+		for (var i = 0; i < cryptocurrency.length; i++) {
+			if (i != coinIndex) {
+				PriceURL += "," + cryptocurrency[i];
+			}
+		}
+
+		//Load the current price data for the coin
+		$.getJSON((BaseURL + "price?" + PriceURL), function(data) {
+			$.each(data, function(key, val) {
+				coinData.value.push({[key]: val});
+			});
 		});
+
+		//Load the price history data for the coin
+		$.getJSON((BaseURL + "histoday?" + HistoryURL + "&limit=" + (valueHistoryLimit - 1)),
+		function(data) {
+			var rootData = data.Data;
+			$.each(rootData, function(key, val) {
+				coinData.history.push(val);
+			});
+		});
+
+		//Add the coin data to the global array
+		ValuesArray.push(coinData);
 	});
-	
-	ValuesArray.push(ethValue);
-	ValuesArray.push(btcValue);
 
 	//Wait 60s before calling loadData again. 
 	//This effectively causes the loadData function to loop every 60s
