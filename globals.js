@@ -11,6 +11,10 @@ var ethermine = {"Michael": "49B9Da60c5256A8428BcF331c92aeBe80C9E04b4",
 
 var nicehash = {"Michael": "3GAkii8Hks7u9thFxM5e383XVFJ35XRjM4"};
 
+//Idea for new value loading method 
+var fiat = {"USD", "CAD", "AUD"}; 
+var crypto = {"ETH", "BTC", "XMR"};
+
 /*
 	CONSTANTS
 */
