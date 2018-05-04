@@ -27,8 +27,8 @@ function displayCurrentStats() {
         //Payment section
         items.push("<li>Unpaid ETH: " 
         + (WalletArray[i].currentStats.unpaid / ethOffset).toFixed(6) + " ($" 
-        + ((WalletArray[i].currentStats.unpaid / ethOffset) * ValuesArray[0].value[0].USD).toFixed(2)
-        + " USD)</li>");
+        + ((WalletArray[i].currentStats.unpaid / ethOffset) * ValuesArray[0].value[0][fiat[0]]).toFixed(2)
+        + " " + fiat[0] + ")</li>");
 
         //Hashrate section
         items.push("<li><ul>Hashrate:");

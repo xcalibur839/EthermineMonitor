@@ -15,7 +15,7 @@ var nicehash = {"Michael": "3GAkii8Hks7u9thFxM5e383XVFJ35XRjM4"};
 	CURRENCIES
 */
 //Arrays of currencies you would like to use
-var fiat = ["USD"]; 
+var fiat = ["USD", "CAD"]; 
 var cryptocurrency = ["ETH", "BTC"];
 
 /*

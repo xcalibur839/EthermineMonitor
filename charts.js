@@ -77,10 +77,10 @@ function drawChart() {
             var options = {
                 title: ValuesArray[i].coin,
                 hAxis: {
-                    title: 'Time (' + valueHistoryLimit + 'd)',
+                    title: 'Time (' + valueHistoryLimit + 'd)'
                 },
                 vAxis: {
-                    title: 'Value (USD)'
+                    title: 'Value (' + fiat[0] + ')'
                 },
                 legend: { 
                     position: 'none'
