@@ -6,7 +6,7 @@ Wallet address and a name can be provided in the globals.js file. JS files shoul
 - jquery
 - google charts loader
 - globals
-- loadData/currentValues/currentStats/charts (any order after globals)
+- loadData/currentValues/currentStats/charts/postData (any order after globals)
 	
 Two divs need to be created with ids "values" and "current" in the body of index.html. See the provided index.html for an example.
 
