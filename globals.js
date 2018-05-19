@@ -5,9 +5,11 @@
 //Wallets will be displayed in the order they are entered
 //CSS can be applied to the class that matches each Name
 //For example: .Name {background-color: dodgerblue;}
-var ethermine = {"Michael": "49B9Da60c5256A8428BcF331c92aeBe80C9E04b4", 
-"Kevin": "00693Ed1A9541d84849Ccf2D01a2637a42757e3D", 
-"Josh": "3e5aaae2f27233ec7af634b14b6ef324e1fa0f60"};
+var ethermine = {
+	"Michael": "49B9Da60c5256A8428BcF331c92aeBe80C9E04b4", 
+	"Kevin": "00693Ed1A9541d84849Ccf2D01a2637a42757e3D", 
+	"Josh": "3e5aaae2f27233ec7af634b14b6ef324e1fa0f60"
+};
 
 var nicehash = {"Michael": "3GAkii8Hks7u9thFxM5e383XVFJ35XRjM4"};
 
@@ -17,6 +19,15 @@ var nicehash = {"Michael": "3GAkii8Hks7u9thFxM5e383XVFJ35XRjM4"};
 //Arrays of currencies you would like to use
 var fiat = ["USD"]; 
 var cryptocurrency = ["ETH", "BTC"];
+
+/*
+	DISCORD WEBHOOKS
+*/
+var discordRoot = "https://discordapp.com/api/webhooks/"
+var webhook = {
+	"id": "",
+	"token": ""
+};
 
 /*
 	CONSTANTS
